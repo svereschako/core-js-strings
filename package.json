@@ -1,6 +1,9 @@
 {
   "name": "core-js-strings",
   "version": "1.0.0",
+{
+  "name": "core-js-strings",
+  "version": "1.0.0",
   "description": "Core JS Strings",
   "main": "index.js",
   "scripts": {
@@ -15,6 +18,7 @@
   "author": "valerydluski, natein",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^8.51.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
