@@ -6,7 +6,7 @@
  ******************************************************************************************* */
 
 /**
- * Returns the length of the given string.
+ * Returns the length of the given string. --------------------------------------------------------------------
  *
  * @param {string} value - The input string to calculate the length of.
  * @return {number} - The length of the string.
@@ -19,15 +19,12 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength( value ) {
-  //throw new Error('Not implemented');
-  if (typeof value == "string")
-    return value.length;
-  return 0;
+function getStringLength(value) {
+  return typeof value === 'string' ? value.length : 0;
 }
 
 /**
- * Returns true if the value is a string, otherwise returns false.
+ * Returns true if the value is a string, otherwise returns false.-------------------------------------------------------------------
  *
  * @param {string} value - The value to check if it's a string.
  * @return {boolean} - True if the value is a string, false otherwise.
@@ -40,15 +37,12 @@ function getStringLength( value ) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString( value ) {
-  //throw new Error('Not implemented');
-  if(typeof value == "string" || value instanceof String)
-    return true;
-  return false;
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
- * Returns the result of concatenation of two strings.
+ * Returns the result of concatenation of two strings.-------------------------------------------------------------------
  *
  * @param {string} value1 - The first string to concatenate.
  * @param {string} value2 - The second string to concatenate.
@@ -59,13 +53,12 @@ function isString( value ) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings( value1, value2 ) {
-  //throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
   return value1.concat(value2);
 }
 
 /**
- * Returns the first character of the given string.
+ * Returns the first character of the given string.------------------------------------------------------------------------
  *
  * @param {string} value - The input string to extract the first character from.
  * @return {string} - The first character of the string.
@@ -75,15 +68,12 @@ function concatenateStrings( value1, value2 ) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar( value ) {
-  //throw new Error('Not implemented');
-  if(value.length == 0)
-    return "";
+function getFirstChar(value) {
   return value.charAt(0);
 }
 
 /**
- * Removes leading and trailing whitespace characters from the string.
+ * Removes leading and trailing whitespace characters from the string.-------------------------------------------------------------------
  *
  * @param {string} value - The input string to remove leading and trailing whitespaces from.
  * @return {string} - The string with leading and trailing whitespaces removed.
@@ -93,13 +83,12 @@ function getFirstChar( value ) {
  *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces( value ) {
-  //throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
 }
 
 /**
- * Removes only leading whitespace characters from the string.
+ * Removes only leading whitespace characters from the string.---------------------------------------------------------
  *
  * @param {string} value - The input string to remove leading whitespaces from.
  * @return {string} - The string with leading whitespaces removed.
@@ -109,13 +98,12 @@ function removeLeadingAndTrailingWhitespaces( value ) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces( value ) {
-  //throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
   return value.trimStart();
 }
 
 /**
- * Removes only trailing whitespace characters from the string.
+ * Removes only trailing whitespace characters from the string.------------------------------------------------------------
  *
  * @param {string} value - The input string to remove trailing whitespaces from.
  * @return {string} - The string with trailing whitespaces removed.
@@ -125,13 +113,12 @@ function removeLeadingWhitespaces( value ) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces( value ) {
-  //throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
   return value.trimEnd();
 }
 
 /**
- * Returns a string that is repeated the specified number of times.
+ * Returns a string that is repeated the specified number of times.---------------------------------------------------------------------
  *
  * @param {string} str - The string to repeat.
  * @param {number} times - The number of times to repeat the string.
@@ -143,15 +130,12 @@ function removeTrailingWhitespaces( value ) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString( str, times ) {
-  //throw new Error('Not implemented');
-  if(times <= 0)
-    return "";  
-  return str.repeat(times);
+function repeatString(str, times) {
+  return times > 0 ? str.repeat(times) : '';
 }
 
 /**
- * Remove the first occurrence of a substring from a string.
+ * Remove the first occurrence of a substring from a string.-------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @param {string} value - The substring to remove from the string.
@@ -162,17 +146,16 @@ function repeatString( str, times ) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences( str, value ) {
-  //throw new Error('Not implemented');
-  //return str.replace(value, "");
-  let pos = str.indexOf(value);
-  if(pos == -1)
-    return str;
-  return str.substring(0, pos) + str.substring(pos + value.length);
+function removeFirstOccurrences(str, value) {
+  const index = str.indexOf(value);
+  if (index !== -1) {
+    return str.slice(0, index) + str.slice(index + value.length);
+  }
+  return str;
 }
 
 /**
- * Remove the last occurrence of a substring from a string.
+ * Remove the last occurrence of a substring from a string.---------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @param {string} value - The substring to remove from the string.
@@ -183,17 +166,16 @@ function removeFirstOccurrences( str, value ) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences( str, value ) {
-  //throw new Error('Not implemented');
-  //return str.replace(new RegExp(`(${value}).*$`), "");
-  let pos = str.lastIndexOf(value);
-  if(pos == -1)
-    return str;
-  return str.substring(0, pos) + str.substring(pos + value.length);
+function removeLastOccurrences(str, value) {
+  const lastIndex = str.lastIndexOf(value);
+  if (lastIndex !== -1) {
+    return str.slice(0, lastIndex) + str.slice(lastIndex + value.length);
+  }
+  return str;
 }
 
 /**
- * Calculate the sum of character codes of the given string.
+ * Calculate the sum of character codes of the given string.----------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @return {number} - The sum of character codes of the string.
@@ -204,19 +186,19 @@ function removeLastOccurrences( str, value ) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes( str ) {
-  //throw new Error('Not implemented');
-  if(!str)
+function sumOfCodes(str) {
+  if (typeof str !== 'string') {
     return 0;
-  let res = 0;
-  for(let i=0;i<str.length;i++) {
-    res += str[i].charCodeAt();
   }
-  return res;
+  let sum = 0;
+  for (let i = 0; i < str.length; i = 1 + i) {
+    sum += str.charCodeAt(i);
+  }
+  return sum;
 }
 
 /**
- * Checks if a string starts with a specific substring.
+ * Checks if a string starts with a specific substring.-------------------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @param {string} substr - The substring to check.
@@ -226,13 +208,12 @@ function sumOfCodes( str ) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith( str, substr ) {
-  //throw new Error('Not implemented');
+function startsWith(str, substr) {
   return str.startsWith(substr);
 }
 
 /**
- * Checks if a string ends with a specific substring.
+ * Checks if a string ends with a specific substring.-------------------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @param {string} substr - The substring to check.
@@ -242,13 +223,12 @@ function startsWith( str, substr ) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith( str, substr ) {
-  //throw new Error('Not implemented');
+function endsWith(str, substr) {
   return str.endsWith(substr);
 }
 
 /**
- * Returns a time string in the "mm:ss" format.
+ * Returns a time string in the "mm:ss" format.----------------------------------------------------------------------------------
  *
  * @param {number} minutes - The number of minutes (non-negative integer).
  * @param {number} seconds - The number of seconds (non-negative integer).
@@ -260,15 +240,14 @@ function endsWith( str, substr ) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime( minutes, seconds ) {
-  //throw new Error('Not implemented');
-  let fmin = minutes > 9 ? String(minutes) : String(minutes).padStart(2, "0");
-  let fsec = seconds > 9 ? String(seconds) : String(seconds).padStart(2, "0");
-  return fmin.concat(":", fsec);
+function formatTime(minutes, seconds) {
+  const paddedMinutes = String(minutes).padStart(2, '0');
+  const paddedSeconds = String(seconds).padStart(2, '0');
+  return `${paddedMinutes}:${paddedSeconds}`;
 }
 
 /**
- * Returns a string in reverse order.
+ * Returns a string in reverse order.-----------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @return {string} - The string in reverse order.
@@ -277,13 +256,12 @@ function formatTime( minutes, seconds ) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString( str ) {
-  //throw new Error('Not implemented');
-  return str.split("").reverse().join("");
+function reverseString(str) {
+  return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0);
 }
 
 /**
- * Returns a string with characters in alphabetical order.
+ * Returns a string with characters in alphabetical order.--------------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @return {string} - The string in alphabetical order.
@@ -293,21 +271,14 @@ function reverseString( str ) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically( str ) {
-  //throw new Error('Not implemented');
-  function sorting(a, b) {
-    if(a > b)
-      return 1;
-    else if(a == b)
-      return 0;
-    else 
-      return -1;
-  }
-  return str.split("").sort(sorting).join("");
+function orderAlphabetically(str) {
+  const arr = str.split('');
+  const result = arr.sort().join('');
+  return result;
 }
 
 /**
- * Checks if a given string contains a specified substring.
+ * Checks if a given string contains a specified substring.----------------------------------------------------------------------------
  *
  * @param {string} str - The input string to search within.
  * @param {string} substring - The substring to check for in the input string.
@@ -318,13 +289,12 @@ function orderAlphabetically( str ) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring( str, substring ) {
-  //throw new Error('Not implemented');
+function containsSubstring(str, substring) {
   return str.includes(substring);
 }
 
 /**
- * Returns the number of vowels in the string.
+ * Returns the number of vowels in the string.----------------------------------------------------------------------------------
  * Vowels: 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'.
  *
  * @param {string} str - The input string.
@@ -337,16 +307,23 @@ function containsSubstring( str, substring ) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels( str ) {
-  //throw new Error('Not implemented');
-  let res = str.match(/[aeiouy]/gi);
-  if(!res)
+function countVowels(str) {
+  if (typeof str !== 'string') {
     return 0;
-  return str.match(/[aeiouy]/gi).length;
+  }
+  const vowels = 'aeiouyAEIOUY';
+  let count = 0;
+  for (let i = 0, len = str.length; i < len; i += 1) {
+    const char = str[i];
+    if (vowels.includes(char)) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /**
- * Returns true if the string is a palindrome; otherwise false.
+ * Returns true if the string is a palindrome; otherwise false.------------------------------------------------------------
  * https://en.wikipedia.org/wiki/Palindrome
  *
  * @param {string} str - The input string.
@@ -358,14 +335,14 @@ function countVowels( str ) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome( str ) {
-  //throw new Error('Not implemented');
-  let reversed = str.replace(/\W/g, "").split("").reverse().join("").toLowerCase();
-  return str.replace(/\W/g, "").toLowerCase() == reversed;
+function isPalindrome(str) {
+  const cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const reversedStr = cleanStr.split('').reverse().join('');
+  return cleanStr === reversedStr;
 }
 
 /**
- * Find the longest word in the sentence. If there are multiple longest words,
+ * Find the longest word in the sentence. If there are multiple longest words,---------------------------------------------------------
  * the function returns the first one encountered.
  *
  * @param {string} sentence - The input sentence.
@@ -376,21 +353,15 @@ function isPalindrome( str ) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord( sentence ) {
-  //throw new Error('Not implemented');
-  let arr = sentence.split(" ");
-  let longest = arr[0];
-  for(let i=1;i<arr.length;i++) {
-    if(arr[i].length > longest.length)
-      longest = arr[i];
-    else if(arr[i].length == longest.length)
-      continue;
-  }
-  return longest;
+function findLongestWord(sentence) {
+  const longestWord = sentence.split(' ').sort(function sorting(a, b) {
+    return b.length - a.length;
+  });
+  return longestWord[0];
 }
 
 /**
- * Returns the string where each word is reversed.
+ * Returns the string where each word is reversed.---------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @return {string} - The string where each word is reversed.
@@ -399,16 +370,18 @@ function findLongestWord( sentence ) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords( str ) {
-  //throw new Error('Not implemented');
-  let res = [];
-  const arr = str.split(" ");
-  arr.forEach((el) => res.push(el.split("").reverse().join("")));
-  return res.join(" ");
+function reverseWords(str) {
+  const strSplit = str.split(' ');
+  let result = '';
+  for (let i = 0; i < strSplit.length; i += 1) {
+    const separateWord = reverseString(strSplit[i]);
+    result = `${result} ${separateWord}`;
+  }
+  return result.trim();
 }
 
 /**
- * Inverts the case of each character in the given string.
+ * Inverts the case of each character in the given string.---------------------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @returns {string} - The string with the case of each character inverted.
@@ -418,25 +391,17 @@ function reverseWords( str ) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase( str ) {
-  //throw new Error('Not implemented');
-  let res = [];
-  const arr = str.split(" ");
-  arr.forEach(function(el) {
-    let word = "";
-    el.split("").forEach(function(elem) {
-      if(elem.toUpperCase() == elem)
-        word += elem.toLowerCase();
-      else
-        word += elem.toUpperCase();
-    });
-    res.push(word);
+function invertCase(str) {
+  return str.replace(/\w/g, function replace(c) {
+    if (c === c.toLowerCase()) {
+      return c.toUpperCase();
+    }
+    return c.toLowerCase();
   });
-  return res.join(" ");
 }
 
 /**
- * Returns the result of string template and given parameters firstName and lastName.
+ * Returns the result of string template and given parameters firstName and lastName.---------------------------------------------------
  * Please do not use concatenation, use template string :
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings
  *
@@ -448,13 +413,12 @@ function invertCase( str ) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate( firstName, lastName ) {
-  //throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
   return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
- * Extracts a name from template string 'Hello, First_Name Last_Name!'.
+ * Extracts a name from template string 'Hello, First_Name Last_Name!'.------------------------------------------------------------
  *
  * @param {string} value - The input value.
  * @return {string} - The name extracted from the template.
@@ -463,14 +427,12 @@ function getStringFromTemplate( firstName, lastName ) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate( value ) {
-  //throw new Error('Not implemented');
-  let res = /Hello,\s([a-zA-z\s]+)/g.exec(value);
-  return res[1];
+function extractNameFromTemplate(value) {
+  return value.replace(/Hello, (.*?)!/, '$1');
 }
 
 /**
- * Remove the first and last angle brackets from tag string
+ * Remove the first and last angle brackets from tag string---------------------------------------------------------------------------
  *
  * @param {string} str - The input tag.
  * @return {string} - The tag without the first and last angle brackets.
@@ -480,14 +442,12 @@ function extractNameFromTemplate( value ) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag( str ) {
-  //throw new Error('Not implemented');
-  let res = str.replace(/^</, "");
-  return res.replace(/>$/, "");
+function unbracketTag(str) {
+  return str.replace(/<(.*?)>/, '$1');
 }
 
 /**
- * Extracts e-mails from single string with e-mails list delimited by semicolons
+ * Extracts e-mails from single string with e-mails list delimited by semicolons-------------------------------------------------------------
  *
  * @param {string} str - The input string.
  * @return {array} - The list of e-mails extracted from the string.
@@ -501,13 +461,12 @@ function unbracketTag( str ) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails( str ) {
-  //throw new Error('Not implemented');
-  return str.split(";");
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
- * Encode specified string with ROT13 cipher
+ * Encode specified string with ROT13 cipher--------------------------------------------------------------------------
  * See details:  https://en.wikipedia.org/wiki/ROT13
  *
  * @param {string} str - The input string.
@@ -522,35 +481,18 @@ function extractEmails( str ) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13( str ) {
-  //throw new Error('Not implemented');
-  /*const calph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const alph = 'abcdefghijklmnopqrstuvwxyz';
-  let punct = str.match(/\W$/);
-  let res = '';
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i] === ' ') res += ' ';
-    if (calph.indexOf(str[i]) !== -1) {
-      res += calph[calph.indexOf(str[i]) + 13 > calph.length
-        ? (calph.indexOf(str[i]) + 13 - calph.length) : calph.indexOf(str[i]) + 13];
-    }
-    if (alph.indexOf(str[i]) !== -1) {
-      res += alph[alph.indexOf(str[i]) + 13 > alph.length
-        ? (alph.indexOf(str[i]) + 13 - alph.length) : alph.indexOf(str[i]) + 13];
-    }
-  }
-  return !punct ? res : res + punct[0];*/
-  return (str ? str : this).split('').map(function(_)
-     {
-        if (!_.match(/[A-Za-z]/)) return _;
-        c = Math.floor(_.charCodeAt(0) / 97);
-        k = (_.toLowerCase().charCodeAt(0) - 83) % 26 || 26;
-        return String.fromCharCode(k + ((c == 0) ? 64 : 96));
-     }).join('');
+function encodeToRot13(str) {
+  return str.replace(/[a-zA-Z]/g, function replacing(c) {
+    const base = c <= 'Z' ? 65 : 97;
+    const charAt = c.charCodeAt(0);
+    const charOrigin = charAt - base + 13;
+    const charIndex = (charOrigin % 26) + base;
+    return String.fromCharCode(charIndex);
+  });
 }
 
 /**
- * Returns playid card id.
+ * Returns playid card id.----------------------------------------------------------------------------------------------
  *
  * Playing cards initial deck includes the cards in the following order:
  *
@@ -573,15 +515,62 @@ function encodeToRot13( str ) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId( value ) {
-  //throw new Error('Not implemented');
-  const deck = [
-   'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-   'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-   'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-   'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'
-   ];
-   return deck.indexOf(value);
+function getCardId(value) {
+  const arr = [
+    'A♣',
+    '2♣',
+    '3♣',
+    '4♣',
+    '5♣',
+    '6♣',
+    '7♣',
+    '8♣',
+    '9♣',
+    '10♣',
+    'J♣',
+    'Q♣',
+    'K♣',
+    'A♦',
+    '2♦',
+    '3♦',
+    '4♦',
+    '5♦',
+    '6♦',
+    '7♦',
+    '8♦',
+    '9♦',
+    '10♦',
+    'J♦',
+    'Q♦',
+    'K♦',
+    'A♥',
+    '2♥',
+    '3♥',
+    '4♥',
+    '5♥',
+    '6♥',
+    '7♥',
+    '8♥',
+    '9♥',
+    '10♥',
+    'J♥',
+    'Q♥',
+    'K♥',
+    'A♠',
+    '2♠',
+    '3♠',
+    '4♠',
+    '5♠',
+    '6♠',
+    '7♠',
+    '8♠',
+    '9♠',
+    '10♠',
+    'J♠',
+    'Q♠',
+    'K♠',
+  ];
+  return arr.indexOf(value);
 }
 
 module.exports = {
